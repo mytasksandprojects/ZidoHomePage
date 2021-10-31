@@ -82,14 +82,17 @@ class LatestItemsCard extends StatelessWidget {
               Row(
                 children: [
                   Container(
+                    height: 30,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(color: CustomColors.primaryColor)),
-                    child: const Text(
-                      'Hafar Al Batin',
-                      style: TextStyle(color: CustomColors.primaryColor),
+                    child:const Center(
+                      child: Text(
+                        'Hafar Al Batin',
+                        style: TextStyle(color: CustomColors.primaryColor),
+                      ),
                     ),
-                    padding:EdgeInsets.all(EasyLocalization.of(context)?.currentLocale==Locale('en')?5:0),
+                    padding:EdgeInsets.all(EasyLocalization.of(context)?.currentLocale==Locale('en')?5:1),
                   ),
                   const SizedBox(
                     width: 5,

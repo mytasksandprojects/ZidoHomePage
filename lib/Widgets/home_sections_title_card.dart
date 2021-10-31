@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:zido/style/colors.dart';
 import 'package:easy_localization/easy_localization.dart';
 class HomeSectionTitle extends StatelessWidget {
-  final String? sectionTitle;
+  final String sectionTitle;
 
-  const HomeSectionTitle({Key? key, this.sectionTitle}) : super(key: key);
+  const HomeSectionTitle({Key? key, this.sectionTitle=''}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class HomeSectionTitle extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(sectionTitle?.tr() ?? '',style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
+          Text(sectionTitle,style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
           Text('seeAll'.tr(),style:const TextStyle(color: CustomColors.primaryColor,fontSize: 12),),
         ],
       ),

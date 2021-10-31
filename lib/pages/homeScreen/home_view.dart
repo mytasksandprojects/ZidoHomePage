@@ -30,46 +30,45 @@ class _HomeViewState extends State<HomeView> {
         leading: const Icon(Icons.search),
         actions: [
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: GestureDetector(
                 onTap: () async{
-                  await Future.delayed(Duration(milliseconds: 500));
-                 if(EasyLocalization.of(context)?.currentLocale==Locale('en'))
+                 if(EasyLocalization.of(context)?.currentLocale==const Locale('en'))
                 {
                   setState(() {
-                   context.setLocale(Locale('ar'));
+                   context.setLocale(const Locale('ar'));
                   });
                 } else {
                     setState(() {
-                      context.setLocale(Locale('en'));
+                      context.setLocale(const Locale('en'));
                     });
                   }
                   },
-                child: Icon(Icons.notifications_none)),
+                child: const Icon(Icons.notifications_none)),
           ),
         ],
         centerTitle: true,
         elevation: 0.0,
       ),
       body: TabBarView(
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           controller: mainTabController,
           children: [
             ListView(
               children: [
                 Column(
                   children: [
-                    Container(
+                    SizedBox(
                       height: 150,
                       width: double.infinity,
                       child: Stack(
                         children: [
                           PageView(
-                            children: [
-                              const HomeHeaderCard(),
-                              const HomeHeaderCard(),
-                              const HomeHeaderCard(),
-                              const HomeHeaderCard(),
+                            children: const [
+                              HomeHeaderCard(),
+                              HomeHeaderCard(),
+                              HomeHeaderCard(),
+                              HomeHeaderCard(),
                             ],
                             onPageChanged: (index) {
                               setState(() {
@@ -92,8 +91,8 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ],
                 ),
-                const HomeSectionTitle(
-                  sectionTitle: 'latestItems',
+                 HomeSectionTitle(
+                  sectionTitle:'latestItems'.tr(),
                 ),
                 SizedBox(
                   height: 280,
@@ -104,13 +103,13 @@ class _HomeViewState extends State<HomeView> {
                     itemCount: 4,
                   ),
                 ),
-                const HomeSectionTitle(
-                  sectionTitle: 'privateAuctions',
+                 HomeSectionTitle(
+                  sectionTitle: 'privateAuctions'.tr(),
                 ),
                 const PrivateAuctionsCard(),
                 const PrivateAuctionsCard(),
-                const HomeSectionTitle(
-                  sectionTitle: 'latestPosts',
+                HomeSectionTitle(
+                  sectionTitle: 'latestPosts'.tr(),
                 ),
                 CarouselSlider(
                   carouselController: CarouselController(),
@@ -138,15 +137,15 @@ class _HomeViewState extends State<HomeView> {
       bottomNavigationBar: TabBar(
         unselectedLabelColor: Colors.black,
         labelColor: CustomColors.primaryColor,
-        indicator: BoxDecoration(),
+        indicator: const BoxDecoration(),
         tabs: [
           Tab(
             text: 'home'.tr(),
-            icon: Icon(Icons.home),
+            icon: const Icon(Icons.home),
           ),
           Tab(
             text: 'buy'.tr(),
-            icon: Icon(Icons.shopping_cart),
+            icon: const Icon(Icons.shopping_cart),
           ),
           Tab(
             text: 'sell'.tr(),
@@ -154,12 +153,12 @@ class _HomeViewState extends State<HomeView> {
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(color: Colors.black)),
-              child: Icon(Icons.add),
+              child: const Icon(Icons.add),
             ),
           ),
           Tab(
             text: 'account'.tr(),
-            icon: Icon(Icons.person),
+            icon: const Icon(Icons.person),
           ),
         ],
         controller: mainTabController,
